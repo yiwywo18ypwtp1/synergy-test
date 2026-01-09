@@ -8,7 +8,6 @@ __pycache__/
 .venv/
 .env
 .env.*
-poetry.lock
 
 # FastAPI / Alembic 
 alembic/versions/__pycache__/
