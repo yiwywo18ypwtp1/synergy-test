@@ -1,8 +1,13 @@
-# 🚀 FastAPI + PostgreSQL Test Assignment
+# 🚀 React + FastAPI + PostgreSQL Test Assignment
 
-This project is a Full-stack application built with React/TypeScript + FastAPI, SQLAlchemy, and PostgreSQL, containerized using Docker Compose.
+This project is a Full-stack web application built with React + TypeScript on the frontend
+and FastAPI, SQLAlchemy, and PostgreSQL on the backend.  
+The entire environment is containerized using Docker and Docker Compose.
 
-The application imports related data from the public API dummyjson.com, stores it in a database, and exposes a REST API to view, update, and delete data.
+The application imports related data (Users and Products) from the public API dummyjson.com,
+stores it in a PostgreSQL database, and exposes a REST API for managing the data.
+The frontend provides a clean and simple interface for viewing, sorting, editing,
+and deleting products.
 
 ## 🧩 Project Overview
 ### Implemented features:
@@ -25,6 +30,24 @@ The application imports related data from the public API dummyjson.com, stores i
 * API tests using pytest
 
 * Fully Dockerized environment
+
+### Frontend
+
+* Import data from Postgres
+
+    * Import Users
+
+    * then - import the Products
+
+* Table-based products view
+
+* Sorting products by ID and Price
+
+* Editing products data
+
+* Delete products
+
+
 
 ## 📦 Data Model
 
@@ -68,6 +91,21 @@ synergy-test/
 │   ├── Dockerfile
 │   └── pyproject.toml
 ├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   ├── App.tsx
+│   │   ├── App.css
+│   │   ├── index.tsx
+│   │   └── index.css
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── tsconfig.json
+│   └── tailwind.config.js
 ├── docker-compose.yml
 └── README.md
 ```
@@ -130,7 +168,7 @@ docker compose exec backend pytest
 All tests are written using pytest and FastAPI TestClient.
 
 ## 🛠️ Tech Stack
-
+### Backend
 * Python 3.11+
 
 * FastAPI
@@ -144,6 +182,16 @@ All tests are written using pytest and FastAPI TestClient.
 * Pytest
 
 * Docker & Docker Compose
+
+### Frontend
+
+* React 19.x +
+
+* TypeScript
+
+* Tailwind CSS 3
+
+* Axios
 
 # 👨‍💻 Author
 
