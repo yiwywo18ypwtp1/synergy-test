@@ -34,6 +34,7 @@ def import_users(db: Session) -> int:
     db.commit()
     return created
 
+
 def import_products(db: Session) -> int:
     response = requests.get(DUMMYSJON_PRODUCTS_URL, timeout=10)
     response.raise_for_status()
@@ -53,7 +54,7 @@ def import_products(db: Session) -> int:
         if exists:
             continue
 
-        owner = random.choice(users) # присвоюємо рандомному юзеру з БД
+        owner = random.choice(users)  # присвоюємо рандомному юзеру з БД
 
         product = Product(
             id=p["id"],

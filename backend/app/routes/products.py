@@ -15,11 +15,11 @@ def list_products(db: Session = Depends(get_db)):
 
 
 @router.get("/{product_id}", response_model=ProductOut)
-def get_one(product_id:int, db: Session = Depends(get_db)):
+def get_one(product_id: int, db: Session = Depends(get_db)):
     product = products_service.get_product(db, product_id)
     if not product:
         raise HTTPException(detail="Product not found", status_code=404)
-    
+
     return product
 
 
@@ -28,7 +28,7 @@ def update(product_id: int, data: ProductUpdate, db: Session = Depends(get_db)):
     updated = products_service.update_product(db, product_id, data)
     if not updated:
         raise HTTPException(detail="Product not found", status_code=404)
-    
+
     return updated
 
 

@@ -16,6 +16,7 @@ def import_users(db: Session = Depends(get_db)):
         "created": created,
     }
 
+
 @router.post("/products")
 def import_products(db: Session = Depends(get_db)):
     created = import_service.import_products(db)
