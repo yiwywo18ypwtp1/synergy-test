@@ -15,5 +15,5 @@ app.include_router(products_router)
 
 @app.get("/health")
 def healthcheck():
-    return {"status": "okok"}
+    return {"status": "ok"}
 
