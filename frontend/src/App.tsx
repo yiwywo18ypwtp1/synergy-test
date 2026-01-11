@@ -34,10 +34,14 @@ function App() {
             <Header onImportProducts={reloadProducts} />
 
             <div className="flex-1 flex flex-col gap-5 px-10 py-6 overflow-hidden">
-                <h1 className="text-2xl font-semibold">Products</h1>
+                <div className="flex items-end gap-2">
+                    <h1 className="text-2xl font-semibold">Products</h1>
+                    <span className="opacity-50 text-lg">{products?.length}</span>
+                </div>
 
                 <ProductTable
                     products={products}
+                    users={users}
                     reloadProducts={reloadProducts}
                 />
             </div>

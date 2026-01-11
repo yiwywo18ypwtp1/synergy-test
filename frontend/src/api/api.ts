@@ -31,3 +31,7 @@ export async function fetchUsers() {
 export async function importUsers() {
     return await api.post<ImportUsersResponse>("/import/users");
 }
+
+export async function getUser(id: number) {
+    return await api.get<User>(`/users/${id}`)
+}

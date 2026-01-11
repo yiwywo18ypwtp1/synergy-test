@@ -3,17 +3,19 @@ import { Product } from "../types/ProductTypes";
 import ProductRow from "./ProductRow";
 import EditProductModal from "./EditProductModal";
 import { deleteProduct } from "../api/api";
+import { User } from "../types/UserType";
 
 
 type Props = {
     products: Product[] | null;
+    users: User[] | null;
     reloadProducts: () => Promise<void>;
 };
 
 type SortField = "id" | "price";
 type SortOrder = "asc" | "desc";
 
-const ProductTable = ({ products, reloadProducts }: Props) => {
+const ProductTable = ({ products, users, reloadProducts }: Props) => {
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
     const [sortField, setSortField] = useState<SortField>("id");
@@ -54,6 +56,7 @@ const ProductTable = ({ products, reloadProducts }: Props) => {
                                 </div>
                             </th>
                             <th className="text-black/50">Title</th>
+                            <th className="text-black/50">Owner</th>
                             <th
                                 onClick={() => {
                                     setSortField("price");
@@ -76,6 +79,7 @@ const ProductTable = ({ products, reloadProducts }: Props) => {
                             <ProductRow
                                 key={product.id}
                                 product={product}
+                                users={users}
                                 onEdit={() => setEditingProduct(product)}
                                 onDelete={async () => handleDelete(product.id)}
                             />
